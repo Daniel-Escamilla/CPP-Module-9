@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel-escamilla <daniel-escamilla@stud    +#+  +:+       +#+        */
+/*   By: descamil <descamil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 18:53:53 by descamil          #+#    #+#             */
-/*   Updated: 2025/06/21 20:26:32 by daniel-esca      ###   ########.fr       */
+/*   Updated: 2025/06/22 19:39:27 by descamil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 class BitcoinExchange
 {
 	private:
-		std::pair<std::string, std::string> database;
+		std::vector<std::pair<std::string, std::string> > _database;
 	public:
 		BitcoinExchange();
 		~BitcoinExchange();
