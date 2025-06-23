@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: descamil <descamil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel-escamilla <daniel-escamilla@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 18:53:53 by descamil          #+#    #+#             */
-/*   Updated: 2025/06/22 19:39:27 by descamil         ###   ########.fr       */
+/*   Updated: 2025/06/23 14:08:30 by daniel-esca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
 
+# include <map>
 # include <ctime>
 # include <cmath>
 # include <limits>
@@ -20,6 +21,7 @@
 # include <vector>
 # include <cstdlib>
 # include <fstream>
+# include <iomanip>
 # include <sstream>
 # include <utility>
 # include <iostream>
@@ -28,15 +30,29 @@
 
 class BitcoinExchange
 {
-	private:
-		std::vector<std::pair<std::string, std::string> > _database;
 	public:
-		BitcoinExchange();
-		~BitcoinExchange();
+		typedef typename std::map<std::string, std::string> map;
+	private:
+		map _infile;
+		map	_database;
+		
+	public:
+		BitcoinExchange() {};
+		~BitcoinExchange() {};
 		BitcoinExchange(const BitcoinExchange& other);
 		BitcoinExchange& operator=(const BitcoinExchange& other);
 
-		void	fillDatabase(const std::string& file);
+		void	findValue(std::string day, std::string value);
+		void	loadAndCompare(BitcoinExchange& btc, char *file);
+		void	checkValue(std::string value, map& target);
+		void	fillDatabase(map& target, const std::string &file, char delimiter);
 };
+
+typedef struct	s_Date
+{
+		int day;
+		int month;
+		int year;
+}		t_Date;
 
 #endif // BITCOINEXCHANGE_HPP
