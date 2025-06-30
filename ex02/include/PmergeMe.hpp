@@ -6,7 +6,7 @@
 /*   By: daniel-escamilla <daniel-escamilla@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:07:48 by daniel-esca       #+#    #+#             */
-/*   Updated: 2025/06/26 10:56:02 by daniel-esca      ###   ########.fr       */
+/*   Updated: 2025/06/28 08:02:09 by daniel-esca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ class PmergeMe
 {
 	private:
 	
-		std::list<unsigned int> _list;
-		std::list<unsigned int> _deque;
+		std::list<unsigned int> _maxList;
+		std::list<unsigned int> _minList;
+		std::list<unsigned int> _maxDeque;
+		std::list<unsigned int> _minDeque;
 	
 	public:
 		void	printTest();
@@ -39,6 +41,9 @@ class PmergeMe
 
 		unsigned int nextNumber(const std::string& array, size_t& i);
 
+		int jacobsthal(int n);
+
+		void insertNumbers();
 };
 
 #endif // PMERGEME_HPP
