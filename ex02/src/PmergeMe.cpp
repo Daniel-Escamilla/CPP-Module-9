@@ -6,7 +6,7 @@
 /*   By: descamil <descamil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:07:55 by daniel-esca       #+#    #+#             */
-/*   Updated: 2025/06/30 18:00:05 by descamil         ###   ########.fr       */
+/*   Updated: 2025/06/30 18:03:51 by descamil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -252,7 +252,7 @@ void PmergeMe::dequeJacobOrder()
 	{
 		int j = jacobsthal(i);
 		if (j >= static_cast<int>(n))
-			break;
+			break ;
 		if (!inserted[j])
 		{
 			jacobIndices.push_back(j);
@@ -276,7 +276,7 @@ void PmergeMe::dequeJacobOrder()
 	for (i = 0; i < n; ++i)
 	{
 		if (inserted[i])
-			continue;
+			continue ;
 
 		std::deque<unsigned int>::iterator it = _minDeque.begin();
 		std::advance(it, i);
@@ -312,7 +312,6 @@ void PmergeMe::orderDequeNumbers(const std::string& str)
 		_minDeque.push_back(std::min(number1, number2));
 	}
 	mergeSort(_maxDeque);
-	
 }
 
 std::string formatContainer(const std::list<unsigned int>& c)
@@ -321,7 +320,6 @@ std::string formatContainer(const std::list<unsigned int>& c)
 	std::list<unsigned int>::const_iterator it = c.begin();
 	int count = 0;
 	size_t totalChars = 0;
-
 	while (it != c.end() && count < 5)
 	{
 		std::ostringstream num;
@@ -331,7 +329,6 @@ std::string formatContainer(const std::list<unsigned int>& c)
 		++it;
 		++count;
 	}
-
 	if (it != c.end())
 		oss << " [...]";
 
