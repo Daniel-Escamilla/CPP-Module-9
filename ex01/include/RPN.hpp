@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel-escamilla <daniel-escamilla@stud    +#+  +:+       +#+        */
+/*   By: descamil <descamil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 14:30:34 by daniel-esca       #+#    #+#             */
-/*   Updated: 2025/06/23 18:55:07 by daniel-esca      ###   ########.fr       */
+/*   Updated: 2025/06/30 18:04:24 by descamil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ struct Token
 
 std::vector<Token>	extractTokens(const char* expr);
 void				processTokens(std::vector<Token> tokens);
-
 
 #endif // RPN_HPP

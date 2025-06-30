@@ -6,7 +6,7 @@
 /*   By: descamil <descamil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:07:48 by daniel-esca       #+#    #+#             */
-/*   Updated: 2025/06/30 17:48:23 by descamil         ###   ########.fr       */
+/*   Updated: 2025/06/30 18:04:16 by descamil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
 class PmergeMe
 {
 	private:
-	
 		std::list<unsigned int> _maxList;
 		std::list<unsigned int> _minList;
 		std::list<unsigned int> _List;
@@ -35,8 +34,6 @@ class PmergeMe
 		std::deque<unsigned int> _maxDeque;
 		std::deque<unsigned int> _minDeque;
 		std::deque<unsigned int> _Deque;
-		
-
 	public:
 		PmergeMe();
 		~PmergeMe();
