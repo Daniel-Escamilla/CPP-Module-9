@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel-escamilla <daniel-escamilla@stud    +#+  +:+       +#+        */
+/*   By: descamil <descamil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:07:48 by daniel-esca       #+#    #+#             */
-/*   Updated: 2025/06/28 08:02:09 by daniel-esca      ###   ########.fr       */
+/*   Updated: 2025/06/30 17:48:23 by descamil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 # define PMERGEME_HPP
 
 # include <list>
+# include <ctime>
 # include <deque>
 # include <limits>
 # include <string>
+# include <iomanip>
 # include <sstream>
 # include <iostream>
 # include <algorithm>
+# include <sys/time.h>
 
 class PmergeMe
 {
@@ -27,23 +30,27 @@ class PmergeMe
 	
 		std::list<unsigned int> _maxList;
 		std::list<unsigned int> _minList;
-		std::list<unsigned int> _maxDeque;
-		std::list<unsigned int> _minDeque;
-	
+		std::list<unsigned int> _List;
+		std::list<unsigned int> _EntireList;
+		std::deque<unsigned int> _maxDeque;
+		std::deque<unsigned int> _minDeque;
+		std::deque<unsigned int> _Deque;
+		
+
 	public:
-		void	printTest();
 		PmergeMe();
 		~PmergeMe();
 		PmergeMe(const PmergeMe &copy);
 		PmergeMe operator=(const PmergeMe &copy);
-	
-		void readNumbers(const std::string& array);
-
-		unsigned int nextNumber(const std::string& array, size_t& i);
-
-		int jacobsthal(int n);
-
-		void insertNumbers();
+		void			printInfo();
+		void			orderListNumbers(const std::string& array);
+		void			orderDequeNumbers(const std::string& array);
+		void			dequeJacobOrder();
+		int				jacobsthal(int n);
+		unsigned int	nextNumber(const std::string& array, size_t& i);
+		
+		double listTime;
+		double dequeTime;
 };
 
 #endif // PMERGEME_HPP
