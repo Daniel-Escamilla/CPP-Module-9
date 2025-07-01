@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: descamil <descamil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel-escamilla <daniel-escamilla@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:07:48 by daniel-esca       #+#    #+#             */
-/*   Updated: 2025/06/30 18:04:16 by descamil         ###   ########.fr       */
+/*   Updated: 2025/07/01 11:06:33 by daniel-esca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ class PmergeMe
 		void			orderDequeNumbers(const std::string& array);
 		void			dequeJacobOrder();
 		int				jacobsthal(int n);
+		void			checkDuplicates(unsigned int number);
 		unsigned int	nextNumber(const std::string& array, size_t& i);
 		
 		double listTime;
