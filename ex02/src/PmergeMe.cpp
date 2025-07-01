@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: descamil <descamil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel-escamilla <daniel-escamilla@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:07:55 by daniel-esca       #+#    #+#             */
-/*   Updated: 2025/06/30 18:03:51 by descamil         ###   ########.fr       */
+/*   Updated: 2025/07/01 11:07:23 by daniel-esca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,6 @@ unsigned int PmergeMe::nextNumber(const std::string& array, size_t& i)
 		number = number * 10 + (array[i++] - '0');
 	if (number > std::numeric_limits<unsigned int>::max())
 		throw std::overflow_error("Number too big");
-	for (std::list<unsigned int>::iterator it = _maxList.begin(); it != _maxList.end(); it++)
-		if (number == *it)
-			throw std::logic_error("Found duplicate numbers");
 	return static_cast<unsigned int>(number);
 }
 
@@ -127,6 +124,13 @@ std::string trim(std::string str)
     return str;
 }
 
+void PmergeMe::checkDuplicates(unsigned int number)
+{
+	for (std::list<unsigned int>::iterator it = _EntireList.begin(); it != _EntireList.end(); it++)
+		if (number == *it)
+			throw std::logic_error("Found duplicate numbers");
+}
+
 void PmergeMe::orderListNumbers(const std::string& str)
 {
 	unsigned int number1;
@@ -140,13 +144,15 @@ void PmergeMe::orderListNumbers(const std::string& str)
 	for (size_t i = 0; array[i] && i < array.size();)
 	{
 		number1 = nextNumber(array, i);
+		checkDuplicates(number1);
 		_EntireList.push_back(number1);
-		if ((array).find_first_not_of(' ', i) == std::string::npos )
+		if (!array[i])
 		{
 			_maxList.push_back(number1);
 			break ;
 		}
 		number2 = nextNumber(array, i);
+		checkDuplicates(number2);
 		_EntireList.push_back(number2);
 		_maxList.push_back(std::max(number1, number2));
 		_minList.push_back(std::min(number1, number2));
